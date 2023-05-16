@@ -1,0 +1,42 @@
+ext {
+    buildNumber = {
+        def build = buildConfig.version.build
+        if (project.hasProperty("incrementedBuildNumber")) {
+            build = incrementedBuildNumber
+        }
+        build
+    }
+
+    //update 10000000 etc on every major release
+    buildVersionCode = {
+        def build = buildNumber().toInteger()
+        def versionCode = build
+        if (build < 10)
+            versionCode = "20000000${build}".toInteger()
+        else if (build < 100)
+            versionCode = "2000000${build}".toInteger()
+        else if (build < 1000)
+            versionCode = "200000${build}".toInteger()
+        else if (build < 10000)
+            versionCode = "20000${build}".toInteger()
+        else if (build < 100000)
+            versionCode = "2000${build}".toInteger()
+        else if (build < 1000000)
+            versionCode = "200${build}".toInteger()
+        else if (build < 10000000)
+            versionCode = "20${build}".toInteger()
+        else if (build < 100000000)
+            versionCode = "2${build}".toInteger()
+
+        println "versionCode: ${versionCode}"
+        versionCode
+    }
+
+    buildVersionName = {
+        def build = buildNumber()
+        def versionName = "${buildConfig.version.major}.${buildConfig.version.minor}.${buildConfig.version.patch}.${build}"
+
+        println "versionName: ${versionName}"
+        versionName
+    }
+}

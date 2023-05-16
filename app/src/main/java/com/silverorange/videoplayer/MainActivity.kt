@@ -1,11 +1,14 @@
 package com.silverorange.videoplayer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.silverorange.videoplayer.fragment.MainFragment
+import com.silverorange.videoplayer.util.MockConstants
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : MockFragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        addFragmentIfNotOnStack(MainFragment(), MockConstants.FRAGMENT_MAIN_TAG)
     }
 }
