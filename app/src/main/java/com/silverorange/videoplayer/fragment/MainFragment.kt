@@ -2,6 +2,7 @@ package com.silverorange.videoplayer.fragment
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.silverorange.videoplayer.MockFragmentActivity
+import com.silverorange.videoplayer.MockVideo
 import com.silverorange.videoplayer.databinding.FragmentMainBinding
 import com.silverorange.videoplayer.ui.MockProgressBar
 import com.silverorange.videoplayer.util.MockConstants
@@ -49,7 +51,7 @@ class MainFragment : Fragment() {
             launch {
                 videosViewModel.getVideosUiState.collect {
                     when (it) {
-                        is GetVideosUiState.Success -> { loadingMockProgressBar.hide() ; onGetVideosSuccess() }
+                        is GetVideosUiState.Success -> { loadingMockProgressBar.hide() ; onGetVideosSuccess(it.mockVideos) }
                         is GetVideosUiState.Error -> { loadingMockProgressBar.hide() ; onGetVideosError() }
                         is GetVideosUiState.Loading -> { loadingMockProgressBar.show() ; onGetVideosLoading() }
                         else -> {}
@@ -85,7 +87,10 @@ class MainFragment : Fragment() {
     private fun onGetVideosLoading() {
     }
 
-    private fun onGetVideosSuccess() {
+    private fun onGetVideosSuccess(mockVideos: List<MockVideo>?) {
+        mockVideos?.forEach {
+            Log.i("MainFragment", it.fullDescription)
+        }
     }
 
     private fun onGetVideosError() {
