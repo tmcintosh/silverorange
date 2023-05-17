@@ -7,7 +7,7 @@
     android:id="@+id/main_constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/menu_selection_background"
+    android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
     android:visibility="visible"
@@ -20,85 +20,151 @@
         android:elevation="6dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:background="@color/menu_selection_top_bar_background"
+        android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="visible">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/main_title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginStart="16dp"
             android:fontFamily="sans-serif-medium"
             android:textSize="20sp"
-            android:textColor="@color/text_header_primary_background"
+            android:textColor="@color/white"
             android:text="@string/app_name"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main_content_text_constraintview"
+        android:id="@+id/main_video_player_constraintview"
         android:visibility="visible"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_top_bar">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/main_app_title_large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="80dp"
-            android:paddingEnd="80dp"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="32sp"
-            android:textColor="@color/text_header"
-            android:text="@string/app_name"
+        <androidx.media3.ui.AspectRatioFrameLayout
+            android:layout_height="210dp"
+            android:layout_width="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/main_content_text_constraintview" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.media3.ui.PlayerView
+                android:id="@+id/player_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:use_artwork="true" />
+        </androidx.media3.ui.AspectRatioFrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_video_player_controls_constraintview"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_top_bar"
+        app:layout_constraintBottom_toBottomOf="@id/main_video_player_constraintview"
+        tools:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/main_video_player_previous_button"
+            android:scaleType="fitCenter"
+            android:background="@drawable/round_button"
+            android:layout_height="55dp"
+            android:layout_width="55dp"
+            android:padding="12dp"
+            android:contentDescription="@string/video_control_previous_accessibility"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/main_video_player_play_button"
+            app:srcCompat="@drawable/previous" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/main_video_player_pause_button"
+            android:scaleType="fitCenter"
+            android:background="@drawable/round_button"
+            android:layout_height="88dp"
+            android:layout_width="88dp"
+            android:padding="12dp"
+            android:contentDescription="@string/video_control_pause_accessibility"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/main_video_player_previous_button"
+            app:layout_constraintEnd_toStartOf="@id/main_video_player_next_button"
+            app:srcCompat="@drawable/pause" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/main_video_player_play_button"
+            android:scaleType="fitCenter"
+            android:background="@drawable/round_button"
+            android:layout_height="88dp"
+            android:layout_width="88dp"
+            android:padding="12dp"
+            android:contentDescription="@string/video_control_play_accessibility"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/main_video_player_previous_button"
+            app:layout_constraintEnd_toStartOf="@id/main_video_player_next_button"
+            app:srcCompat="@drawable/play" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/main_video_player_next_button"
+            android:scaleType="fitCenter"
+            android:background="@drawable/round_button"
+            android:layout_height="55dp"
+            android:layout_width="55dp"
+            android:padding="12dp"
+            android:contentDescription="@string/video_control_next_accessibility"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/main_video_player_play_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/next" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_content_text_constraintview"
+        android:visibility="visible"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_video_player_constraintview"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/main_version"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/main_content_text_textview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/generic_ui_light"
+            android:textColor="@color/black"
+            android:text="@string/video_preview_text"
+            android:scrollbars = "vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_app_title_large"
-            app:layout_constraintBottom_toTopOf="@id/main_version"
-            tools:text="Version 1.0.0"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/main_copyright"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="@color/generic_ui_light"
-            android:text="@string/copyright"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_version"
-            app:layout_constraintBottom_toTopOf="@id/main_all_rights_reserved" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/main_all_rights_reserved"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="@color/generic_ui_light"
-            android:text="@string/copyright_all_rights_reserved"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_copyright" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,7 +175,8 @@
         android:layout_marginTop="21dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_content_text_constraintview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:visibility="visible">
 
         <androidx.appcompat.widget.AppCompatImageButton

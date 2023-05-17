@@ -1,6 +1,7 @@
 package com.silverorange.videoplayer.fragment
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +14,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.silverorange.videoplayer.MockFragmentActivity
-import com.silverorange.videoplayer.R
 import com.silverorange.videoplayer.databinding.FragmentMainBinding
 import com.silverorange.videoplayer.ui.MockProgressBar
 import com.silverorange.videoplayer.util.MockConstants
-import com.silverorange.videoplayer.util.MockUtilsVersioning
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.Calendar
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -49,11 +47,11 @@ class MainFragment : Fragment() {
 
         lifecycleScope.launch {
             launch {
-                videosViewModel.getVideosDataUiState.collect {
+                videosViewModel.getVideosUiState.collect {
                     when (it) {
-                        is GetVideosDataUiState.Success -> { loadingMockProgressBar.hide() ; onGetVideosDataSuccess() }
-                        is GetVideosDataUiState.Error -> { loadingMockProgressBar.hide() ; onVideosDownloadError() }
-                        is GetVideosDataUiState.Loading -> { loadingMockProgressBar.show() ; onVideosDownloadLoading() }
+                        is GetVideosUiState.Success -> { loadingMockProgressBar.hide() ; onGetVideosSuccess() }
+                        is GetVideosUiState.Error -> { loadingMockProgressBar.hide() ; onGetVideosError() }
+                        is GetVideosUiState.Loading -> { loadingMockProgressBar.show() ; onGetVideosLoading() }
                         else -> {}
                     }
                 }
@@ -70,27 +68,26 @@ class MainFragment : Fragment() {
     }
 
     private fun setupUI() {
-        binding.mainVersion.text = MockUtilsVersioning.getCurrentAppVersionFullString(requireContext())
-        binding.mainCopyright.text = getString(R.string.copyright, Calendar.getInstance().get(Calendar.YEAR).toString())
+        binding.mainContentTextTextview.movementMethod = ScrollingMovementMethod()
         loadingMockProgressBar = binding.loadingCenterMockProgressBar
         downloadVideosDataButton = binding.mainContentDownloadVideosDataButton
         downloadVideosDataButton.setOnClickListener {
-            getVideosData()
+            getVideos()
         }
     }
 
-    private fun getVideosData() {
+    private fun getVideos() {
         val mockFragmentActivity = requireActivity() as MockFragmentActivity
         if (mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)) { return }
-        videosViewModel.getVideosData()
+        videosViewModel.getVideos()
     }
 
-    private fun onVideosDownloadLoading() {
+    private fun onGetVideosLoading() {
     }
 
-    private fun onGetVideosDataSuccess() {
+    private fun onGetVideosSuccess() {
     }
 
-    private fun onVideosDownloadError() {
+    private fun onGetVideosError() {
     }
 }
