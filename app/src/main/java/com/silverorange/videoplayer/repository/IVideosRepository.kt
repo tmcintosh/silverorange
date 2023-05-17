@@ -1,8 +1,8 @@
 package com.silverorange.videoplayer.repository
 
-import com.silverorange.videoplayer.network.dto.VideosDTO
+import com.silverorange.videoplayer.MockVideo
 
 interface IVideosRepository {
-    suspend fun fetchVideos(): VideosDTO?
+    suspend fun fetchVideos(): List<MockVideo>?
 }
 

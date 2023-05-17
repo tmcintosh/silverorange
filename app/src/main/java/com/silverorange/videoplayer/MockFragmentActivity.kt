@@ -6,7 +6,6 @@ import androidx.fragment.app.commit
 import com.silverorange.videoplayer.fragment.NetworkErrorFragment
 import com.silverorange.videoplayer.network.MockNetworkHelper
 import com.silverorange.videoplayer.util.MockConstants
-import com.silverorange.videoplayer.util.MockUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

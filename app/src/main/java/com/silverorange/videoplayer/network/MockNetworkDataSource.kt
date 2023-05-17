@@ -1,7 +1,7 @@
 package com.silverorange.videoplayer.network
 
-import com.silverorange.videoplayer.network.dto.VideosDTO
+import com.silverorange.videoplayer.network.dto.VideoDTO
 
 interface MockNetworkDataSource {
-    suspend fun getVideos(): VideosDTO
+    suspend fun getVideos(): List<VideoDTO>
 }
