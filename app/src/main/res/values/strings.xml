@@ -4,6 +4,19 @@
     <string name="copyright">Copyright © %1$s Tom McIntosh.</string>
     <string name="copyright_all_rights_reserved">All rights reserved.</string>
 
+    <string name="video_preview_text">My Cool Video Title \nMel Herbert
+        \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus euismod massa sit amet eleifend. Vivamus varius lacinia ligula non blandit. Nulla ultricies feugiat urna, fringilla sollicitudin velit. Ut lacinia nulla risus, maximus pulvinar eros finibus nec. Aenean egestas rutrum dui quis dignissim. Mauris auctor sed lectus ac congue. Praesent semper purus sed tempus cursus. In dolor ex, rutrum nec faucibus ac, facilisis id felis.
+        \nMorbi cursus ante ipsum, sed varius massa rhoncus vel. Vestibulum id porta elit, eu tempor mi. Donec eu augue id massa imperdiet maximus. Nullam lobortis elit nec rutrum vehicula. Morbi at accumsan massa. Nunc lobortis feugiat velit sit amet lacinia. Vestibulum vulputate egestas enim, quis tempor augue semper at. Pellentesque porttitor libero eget metus interdum feugiat.
+        \nFusce imperdiet odio in ultricies varius. Curabitur interdum augue ut ante rutrum, a consequat nibh tincidunt. Phasellus pellentesque blandit rhoncus. Vestibulum ullamcorper nisl risus, nec hendrerit odio ullamcorper ut. Duis commodo arcu quam, in euismod odio rutrum a. Aliquam malesuada consectetur erat eget dictum. Curabitur sed efficitur odio. Curabitur consectetur nunc sit amet velit cursus, mattis pulvinar lacus placerat. Pellentesque euismod justo odio, vitae porta velit posuere vitae.
+        \nSed semper interdum turpis quis malesuada. Suspendisse in metus scelerisque, eleifend leo sit amet, vehicula diam. In in malesuada neque, nec scelerisque diam. Vivamus vel massa sollicitudin, vestibulum eros sed, mattis diam. Morbi tristique, est vel euismod pretium, lectus libero iaculis massa, sed sodales velit mauris in purus. Quisque porta orci sit amet lorem pretium pharetra. Praesent at nisl velit.
+        \nVivamus interdum bibendum nisi, ut ultrices quam fringilla ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et sem quis ligula tincidunt aliquet at quis mi. Vivamus sed luctus purus, non tincidunt urna. Nam neque arcu, congue non lacus non, tristique tincidunt mauris. Aliquam mattis mi non vestibulum vestibulum. Donec gravida eleifend diam quis fringilla. Pellentesque ullamcorper odio felis, non hendrerit nunc tristique quis. Aliquam dignissim velit ut bibendum facilisis. "
+    </string>
+
+    <string name="video_control_previous_accessibility">Previous</string>
+    <string name="video_control_play_accessibility">Play</string>
+    <string name="video_control_pause_accessibility">Pause</string>
+    <string name="video_control_next_accessibility">Next</string>
+
     <string name="url">URL</string>
     <string name="url_http">https://</string>
     <string name="url_invalid">Invalid URL</string>
