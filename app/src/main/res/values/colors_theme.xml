@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/mock_blue</color>
+    <color name="colorPrimaryDark">@color/mock_blue_dark</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+    <color name="colorControlNormal">@color/white</color>
+
+    <color name="favorites_star">@color/mock_yellow</color>
+    <color name="map_center_pin">@color/mock_grey_dark</color>
+    <color name="hamburger">@color/black</color>
+    <color name="search_bar_black_out_background">@color/white_80_transparent</color>
+    <color name="menu_item_image">@color/mock_grey_dark</color>
+    <color name="menu_selection_background">@color/mock_grey_background</color>
+    <color name="menu_selection_top_bar_background">@color/colorPrimary</color>
+    <color name="favorites_item_background">@color/white</color>
+    <color name="button_outline">@color/white</color>
+    <color name="button_primary_fill_text">@color/white</color>
+    <color name="button_no_fill_text">@color/colorPrimary</color>
+
+    <color name="splash_screen_background">@color/mock_onboarding_background_color</color>
+    <color name="onboarding_slide_primary">@color/mock_onboarding_background_color</color>
+    <color name="onboarding_title_text">@color/mock_onboarding_title_text</color>
+    <color name="onboarding_description_text">@color/mock_onboarding_description_text</color>
+    <color name="onboarding_checkmark">@color/mock_green</color>
+    <color name="onboarding_navigation_button_background">@color/mock_onboarding_slider_foreground</color>
+    <color name="onboarding_navigation_button_foreground">@color/mock_onboarding_button_background_night</color>
+    <color name="onboarding_navigation_slider_background">@color/mock_onboarding_slider_background</color>
+    <color name="onboarding_navigation_slider_foreground">@color/mock_onboarding_slider_foreground</color>
+
+    <color name="force_upgrade_ui_outline">@color/transparent</color>
+
+    <color name="black_transparent_background">@color/black_80_transparent</color>
+
+    <color name="bottom_sheet_favorites_star_outline">@color/mock_grey_dark</color>
+
+    <color name="permission_location_marker">@color/mock_red_pin_light</color>
+    <color name="notification_bell">@color/mock_notification_bell_yellow</color>
+
+    <color name="logo">@color/black</color>
+    <color name="logo_man">@color/black</color>
+    <color name="logo_pin_light">@color/mock_red_pin_light</color>
+    <color name="logo_pin_dark">@color/mock_red_pin_dark</color>
+    <color name="logo_sheet_dark">@color/mock_blue_night</color>
+    <color name="logo_sheet_light">@color/mock_blue</color>
+    <color name="logo_sheet_onboarding_dark">@color/mock_blue_dark</color>
+    <color name="logo_sheet_onboarding_light">@color/mock_blue_night</color>
+
+    <color name="logo_icon_man">@color/black</color>
+    <color name="logo_icon_background">@color/mock_blue</color>
+    <color name="logo_icon_transparent">@color/mock_icon_transparent</color>
+
+    <color name="generic_ui_transparent">@color/transparent</color>
+    <color name="generic_ui_light">@color/mock_grey_light</color>
+    <color name="generic_ui_dark">@color/mock_grey_dark</color>
+    <color name="generic_ui_outline">@color/transparent</color>
+    <color name="generic_ui_background">@color/white</color>
+
+    <color name="text_header_primary_background">@color/white</color>
+    <color name="text_header">@color/mock_grey_dark</color>
+</resources>
