@@ -1,6 +1,8 @@
 package com.silverorange.videoplayer.repository
 
+import com.silverorange.videoplayer.network.dto.VideosDTO
+
 interface IVideosRepository {
-    suspend fun getVideosData(url: String): List<String>
+    suspend fun fetchVideos(): VideosDTO?
 }
 

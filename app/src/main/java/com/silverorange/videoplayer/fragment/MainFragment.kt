@@ -72,6 +72,7 @@ class MainFragment : Fragment() {
     private fun setupUI() {
         binding.mainVersion.text = MockUtilsVersioning.getCurrentAppVersionFullString(requireContext())
         binding.mainCopyright.text = getString(R.string.copyright, Calendar.getInstance().get(Calendar.YEAR).toString())
+        loadingMockProgressBar = binding.loadingCenterMockProgressBar
         downloadVideosDataButton = binding.mainContentDownloadVideosDataButton
         downloadVideosDataButton.setOnClickListener {
             getVideosData()
@@ -81,7 +82,7 @@ class MainFragment : Fragment() {
     private fun getVideosData() {
         val mockFragmentActivity = requireActivity() as MockFragmentActivity
         if (mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)) { return }
-        videosViewModel.getVideosDataFromURL()
+        videosViewModel.getVideosData()
     }
 
     private fun onVideosDownloadLoading() {
