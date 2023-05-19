@@ -16,4 +16,8 @@ class MockVideo(
     val fullDescription: String get() {
         return id + "\n" + title + "\n" + hlsURL + "\n" + fullURL + "\n" + this.description + "\n" + publishedAt.toString() + "\n" + authorId + "\n" + authorName
     }
+
+    val uiDescription: String get() {
+        return title + "\n" + authorName + "\n\n" + description
+    }
 }
