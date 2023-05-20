@@ -95,6 +95,9 @@ dependencies {
     implementation "androidx.media3:media3-exoplayer:$exoplayer_version"
     implementation "androidx.media3:media3-exoplayer-dash:$exoplayer_version"
     implementation "androidx.media3:media3-ui:$exoplayer_version"
+
+    //markwon markdown
+    implementation "io.noties.markwon:core:4.6.2"
 }
 
 //hilt
