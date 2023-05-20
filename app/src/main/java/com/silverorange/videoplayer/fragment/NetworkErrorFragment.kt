@@ -1,6 +1,7 @@
 package com.silverorange.videoplayer.fragment
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
@@ -36,7 +37,7 @@ class NetworkErrorFragment : MockFragment() {
     }
 
     private fun handleConnect() {
-        val intent = Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY)
+        val intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY) else Intent(Settings.ACTION_WIRELESS_SETTINGS)
         startActivity(intent)
         onBackPressedCallback.handleOnBackPressed()
     }

@@ -27,6 +27,7 @@ import com.silverorange.videoplayer.databinding.FragmentMainBinding
 import com.silverorange.videoplayer.ui.MockProgressBar
 import com.silverorange.videoplayer.util.MockConstants
 import dagger.hilt.android.AndroidEntryPoint
+import io.noties.markwon.Markwon
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -45,9 +46,12 @@ class MainFragment : Fragment() {
     private lateinit var playerView: PlayerView
     private lateinit var player: ExoPlayer
 
+    private lateinit var markwon: Markwon
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onBackPressedCallback = requireActivity().onBackPressedDispatcher.addCallback(this) { requireActivity().moveTaskToBack(true) }; onBackPressedCallback.isEnabled = true //allow back pressed
+        markwon = Markwon.create(requireContext())
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -115,6 +119,8 @@ class MainFragment : Fragment() {
                     }
                     if (events.contains(Player.EVENT_PLAYER_ERROR)) {
                         binding.mainContentErrorTextTextview.visibility = View.VISIBLE
+                        val mockFragmentActivity = requireActivity() as MockFragmentActivity
+                        mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)
                     }
                 }
 
@@ -137,17 +143,17 @@ class MainFragment : Fragment() {
     }
 
     private fun loadDescription(mockVideo: MockVideo) {
-        binding.mainContentTextTextview.text = mockVideo.uiDescription
+        markwon.setMarkdown(binding.mainContentTextTextview , mockVideo.uiDescription) // apply markdown formatting with Markwon
     }
 
     private fun getVideos() {
         val mockFragmentActivity = requireActivity() as MockFragmentActivity
         if (mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)) {
-            downloadVideosDataButton.visibility = View.VISIBLE
+            binding.mainContentDownloadConstraintview.visibility = View.VISIBLE
             return
         }
 
-        downloadVideosDataButton.visibility = View.GONE
+        binding.mainContentDownloadConstraintview.visibility = View.GONE
         videosViewModel.getVideos()
     }
 
@@ -157,13 +163,15 @@ class MainFragment : Fragment() {
         mockVideos?.forEach { mockVideo ->
             Log.i(TAG, mockVideo.fullDescription)
             mockVideo.fullURL?.let { fullURL ->
-                val mediaItem = MediaItem.fromUri(fullURL.toUri()) // Build the media item.
+                val mediaItem = MediaItem.fromUri(fullURL.toUri()) // Build the media item
                 player.addMediaItem(mediaItem)
             }
         }
         player.prepare()
-        player.pause()
+        player.pause() //pause initially as per requirements
     }
 
-    private fun onGetVideosError() {}
+    private fun onGetVideosError() {
+        binding.mainContentDownloadConstraintview.visibility = View.VISIBLE
+    }
 }
