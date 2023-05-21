@@ -110,15 +110,15 @@ class MainFragment : Fragment() {
                         val mockVideo = videosViewModel.findVideoForUri(uri)
                         mockVideo?.let { loadDescription(it) }
                     }
-                    binding.mainContentErrorTextTextview.visibility = View.GONE
+                    hidePlaybackError()
                 }
 
                 override fun onEvents(player: Player, events: Player.Events) {
                     if (events.contains(Player.EVENT_PLAYBACK_STATE_CHANGED) || events.contains(Player.EVENT_PLAY_WHEN_READY_CHANGED)) {
-                        binding.mainContentErrorTextTextview.visibility = View.GONE
+                        hidePlaybackError()
                     }
                     if (events.contains(Player.EVENT_PLAYER_ERROR)) {
-                        binding.mainContentErrorTextTextview.visibility = View.VISIBLE
+                        showPlaybackError()
                         val mockFragmentActivity = requireActivity() as MockFragmentActivity
                         mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)
                     }
@@ -149,11 +149,11 @@ class MainFragment : Fragment() {
     private fun getVideos() {
         val mockFragmentActivity = requireActivity() as MockFragmentActivity
         if (mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)) {
-            binding.mainContentDownloadConstraintview.visibility = View.VISIBLE
+            showDownloadError()
             return
         }
 
-        binding.mainContentDownloadConstraintview.visibility = View.GONE
+        hideDownloadError()
         videosViewModel.getVideos()
     }
 
@@ -172,6 +172,24 @@ class MainFragment : Fragment() {
     }
 
     private fun onGetVideosError() {
+        showDownloadError()
+    }
+
+
+    //ui error handling:
+    private fun showPlaybackError() {
+        binding.mainContentErrorConstraintview.visibility = View.VISIBLE
+    }
+
+    private fun hidePlaybackError() {
+        binding.mainContentErrorConstraintview.visibility = View.GONE
+    }
+
+    private fun showDownloadError() {
         binding.mainContentDownloadConstraintview.visibility = View.VISIBLE
+    }
+
+    private fun hideDownloadError() {
+        binding.mainContentDownloadConstraintview.visibility = View.GONE
     }
 }
