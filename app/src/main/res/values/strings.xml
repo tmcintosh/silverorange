@@ -45,5 +45,6 @@
     <string name="rationale_cancel">CANCEL</string>
     <string name="rationale_ok">OK</string>
     <string name="app_info">App Info</string>
-    <string name="playback_error_occured">Playback Error Occured!</string>
+    <string name="playback_error_occurred">Playback Error Occurred!</string>
+    <string name="download_error_occurred">Download Error Occurred!</string>
 </resources>
