@@ -29,6 +29,7 @@
     <string name="url_scrape_error">Scrape Error!</string>
     <string name="url_scrape_no_images">Scrape found no images!</string>
 
+    <string name="downloading">Downloading...</string>
     <string name="download_accessibility">Download</string>
     <string name="download_checkbox_add_to_gallery">Add to Gallery</string>
     <string name="search_accessibility">Search</string>

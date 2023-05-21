@@ -1,6 +1,6 @@
 package com.silverorange.videoplayer.network.dto
 
-import com.silverorange.videoplayer.MockVideo
+import com.silverorange.videoplayer.model.MockVideo
 import com.silverorange.videoplayer.util.MockUtils
 import kotlinx.serialization.Serializable
 
