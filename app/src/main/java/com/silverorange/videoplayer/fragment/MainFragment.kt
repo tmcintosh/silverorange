@@ -22,7 +22,7 @@ import androidx.media3.datasource.HttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import com.silverorange.videoplayer.MockFragmentActivity
-import com.silverorange.videoplayer.MockVideo
+import com.silverorange.videoplayer.model.MockVideo
 import com.silverorange.videoplayer.databinding.FragmentMainBinding
 import com.silverorange.videoplayer.ui.MockProgressBar
 import com.silverorange.videoplayer.util.MockConstants
@@ -110,15 +110,15 @@ class MainFragment : Fragment() {
                         val mockVideo = videosViewModel.findVideoForUri(uri)
                         mockVideo?.let { loadDescription(it) }
                     }
-                    hidePlaybackError()
+                    hidePlaybackErrorUI()
                 }
 
                 override fun onEvents(player: Player, events: Player.Events) {
                     if (events.contains(Player.EVENT_PLAYBACK_STATE_CHANGED) || events.contains(Player.EVENT_PLAY_WHEN_READY_CHANGED)) {
-                        hidePlaybackError()
+                        hidePlaybackErrorUI()
                     }
                     if (events.contains(Player.EVENT_PLAYER_ERROR)) {
-                        showPlaybackError()
+                        showPlaybackErrorUI()
                         val mockFragmentActivity = requireActivity() as MockFragmentActivity
                         mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)
                     }
@@ -149,17 +149,20 @@ class MainFragment : Fragment() {
     private fun getVideos() {
         val mockFragmentActivity = requireActivity() as MockFragmentActivity
         if (mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)) {
-            showDownloadError()
+            showDownloadErrorUI()
             return
         }
 
-        hideDownloadError()
+        hideDownloadErrorUI()
         videosViewModel.getVideos()
     }
 
-    private fun onGetVideosLoading() {}
+    private fun onGetVideosLoading() {
+        showDownloadLoadingUI()
+    }
 
     private fun onGetVideosSuccess(mockVideos: List<MockVideo>?) {
+        hideDownloadLoadingUI()
         mockVideos?.forEach { mockVideo ->
             Log.i(TAG, mockVideo.fullDescription)
             mockVideo.fullURL?.let { fullURL ->
@@ -172,24 +175,33 @@ class MainFragment : Fragment() {
     }
 
     private fun onGetVideosError() {
-        showDownloadError()
+        showDownloadErrorUI()
     }
 
 
-    //ui error handling:
-    private fun showPlaybackError() {
+    //ui loading / error handling:
+    private fun showPlaybackErrorUI() {
         binding.mainContentErrorConstraintview.visibility = View.VISIBLE
     }
 
-    private fun hidePlaybackError() {
+    private fun hidePlaybackErrorUI() {
         binding.mainContentErrorConstraintview.visibility = View.GONE
     }
 
-    private fun showDownloadError() {
+    private fun showDownloadErrorUI() {
+        hideDownloadLoadingUI()
         binding.mainContentDownloadConstraintview.visibility = View.VISIBLE
     }
 
-    private fun hideDownloadError() {
+    private fun hideDownloadErrorUI() {
         binding.mainContentDownloadConstraintview.visibility = View.GONE
+    }
+
+    private fun showDownloadLoadingUI() {
+        binding.mainContentLoadingConstraintview.visibility = View.VISIBLE
+    }
+
+    private fun hideDownloadLoadingUI() {
+        binding.mainContentLoadingConstraintview.visibility = View.GONE
     }
 }

@@ -6,7 +6,7 @@ import androidx.core.net.toUri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.silverorange.videoplayer.MockVideo
+import com.silverorange.videoplayer.model.MockVideo
 import com.silverorange.videoplayer.repository.VideosRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException

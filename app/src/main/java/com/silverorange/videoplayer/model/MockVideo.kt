@@ -1,4 +1,4 @@
-package com.silverorange.videoplayer
+package com.silverorange.videoplayer.model
 
 import java.util.Date
 
@@ -18,6 +18,6 @@ class MockVideo(
     }
 
     val uiDescription: String get() {
-        return title + "\n" + authorName + "\n\n" + description
+        return "**$title**\n\n$authorName\n\n$description"
     }
 }

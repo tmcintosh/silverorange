@@ -1,7 +1,7 @@
 package com.silverorange.videoplayer.repository
 
 import android.util.Log
-import com.silverorange.videoplayer.MockVideo
+import com.silverorange.videoplayer.model.MockVideo
 import com.silverorange.videoplayer.network.MockRetrofitNetwork
 import com.silverorange.videoplayer.network.dto.asExternalModel
 import javax.inject.Inject
