@@ -17,8 +17,10 @@
         android:theme="@style/Theme.VideoPlayer"
         tools:targetApi="31">
 
+        <!--TODO: locking to portrait due to project's suggested time constraint. please let me know if you require landscape as well." -->
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

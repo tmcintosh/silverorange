@@ -65,7 +65,7 @@
         </androidx.media3.ui.AspectRatioFrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <!-- TODO: these ui controls are unused as Media3 Exoplayer handles this natively. Left here for demonstrative purposes !-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_video_player_controls_constraintview"
         android:visibility="gone"

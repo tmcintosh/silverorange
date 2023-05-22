@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.core.net.toUri
@@ -38,15 +37,13 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val videosViewModel: VideosViewModel by viewModels()
-
     private lateinit var onBackPressedCallback: OnBackPressedCallback
-    private lateinit var loadingMockProgressBar: MockProgressBar
-    private lateinit var downloadVideosDataButton: ImageButton
 
     private lateinit var playerView: PlayerView
     private lateinit var player: ExoPlayer
-
     private lateinit var markwon: Markwon
+
+    private lateinit var loadingMockProgressBar: MockProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,11 +90,10 @@ class MainFragment : Fragment() {
     private fun setupUI() {
         setupPlayerUI()
         binding.mainContentTextTextview.movementMethod = ScrollingMovementMethod()
-        loadingMockProgressBar = binding.loadingCenterMockProgressBar
-        downloadVideosDataButton = binding.mainContentDownloadVideosDataButton
-        downloadVideosDataButton.setOnClickListener {
+        binding.mainContentDownloadVideosDataButton.setOnClickListener {
             getVideos()
         }
+        loadingMockProgressBar = binding.loadingCenterMockProgressBar
     }
 
     private fun setupPlayerUI() {
@@ -142,10 +138,6 @@ class MainFragment : Fragment() {
         playerView.player = player
     }
 
-    private fun loadDescription(mockVideo: MockVideo) {
-        markwon.setMarkdown(binding.mainContentTextTextview , mockVideo.uiDescription) // apply markdown formatting with Markwon
-    }
-
     private fun getVideos() {
         val mockFragmentActivity = requireActivity() as MockFragmentActivity
         if (mockFragmentActivity.showMockFragment(MockConstants.FRAGMENT_NETWORK_ERROR_TAG)) {
@@ -157,6 +149,12 @@ class MainFragment : Fragment() {
         videosViewModel.getVideos()
     }
 
+    private fun loadDescription(mockVideo: MockVideo) {
+        markwon.setMarkdown(binding.mainContentTextTextview , mockVideo.uiDescription) // apply markdown formatting with Markwon
+    }
+
+    //ViewModel state handling:
+    //-------------------------
     private fun onGetVideosLoading() {
         showDownloadLoadingUI()
     }
@@ -180,6 +178,7 @@ class MainFragment : Fragment() {
 
 
     //ui loading / error handling:
+    //----------------------------
     private fun showPlaybackErrorUI() {
         binding.mainContentErrorConstraintview.visibility = View.VISIBLE
     }
