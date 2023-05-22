@@ -25,7 +25,6 @@ class NetworkErrorFragment : MockFragment() {
     }
 
     private fun setupUI() {
-        super.handleLandscapeSizing(binding.networkErrorCardView)
         val cancelButton = binding.networkErrorContentButtonsCancelButton
         cancelButton.setOnClickListener { handleCancel() }
         val connectButton = binding.networkErrorContentButtonsConnectButton
