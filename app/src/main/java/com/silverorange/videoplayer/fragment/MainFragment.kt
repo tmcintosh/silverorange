@@ -21,8 +21,8 @@ import androidx.media3.datasource.HttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import com.silverorange.videoplayer.MockFragmentActivity
-import com.silverorange.videoplayer.model.MockVideo
 import com.silverorange.videoplayer.databinding.FragmentMainBinding
+import com.silverorange.videoplayer.model.MockVideo
 import com.silverorange.videoplayer.ui.MockProgressBar
 import com.silverorange.videoplayer.util.MockConstants
 import dagger.hilt.android.AndroidEntryPoint
