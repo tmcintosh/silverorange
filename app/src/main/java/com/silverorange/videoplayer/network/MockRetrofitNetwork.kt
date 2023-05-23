@@ -16,7 +16,7 @@ private interface MockRetrofitNetworkApi {
     @GET("videos")
     suspend fun getVideos(): List<VideoDTO>
 
-//    //TODO: Uncomment, along with using DEFAULT_MOCK_BASE_URL below for my personal backend if local server has issues
+//    //TODO: Uncomment, along with using DEFAULT_RETROFIT_PERSONAL_BACKEND_BASE_URL below for my personal backend if local server has issues
 //    //uploaded json returned by local server to personal backend for ease of dev
 //    @GET("silverorange_server_json.json")
 //    suspend fun getVideos(): List<VideoDTO>
