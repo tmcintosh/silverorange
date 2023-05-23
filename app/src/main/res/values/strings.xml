@@ -14,10 +14,10 @@
     <string name="video_control_pause_accessibility">Pause</string>
     <string name="video_control_next_accessibility">Next</string>
 
-    <string name="downloading">Downloading...</string>
+    <string name="downloading">Downloading…</string>
     <string name="download_accessibility">Download</string>
 
-    <string name="playback_error_occurred">Playback Error Occurred!</string>
+    <string name="player_error_occurred">Player Error Occurred!</string>
     <string name="download_error_occurred">Download Error Occurred!</string>
 
     <string name="network_error_title">No Internet Connection</string>
