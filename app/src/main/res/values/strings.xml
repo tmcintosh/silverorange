@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Video Player</string>
-    <string name="version">Version</string>
-    <string name="copyright">Copyright © %1$s Tom McIntosh.</string>
-    <string name="copyright_all_rights_reserved">All rights reserved.</string>
 
     <string name="video_preview_text">My Cool Video Title \nMel Herbert
         \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus euismod massa sit amet eleifend. Vivamus varius lacinia ligula non blandit. Nulla ultricies feugiat urna, fringilla sollicitudin velit. Ut lacinia nulla risus, maximus pulvinar eros finibus nec. Aenean egestas rutrum dui quis dignissim. Mauris auctor sed lectus ac congue. Praesent semper purus sed tempus cursus. In dolor ex, rutrum nec faucibus ac, facilisis id felis.
@@ -17,32 +14,14 @@
     <string name="video_control_pause_accessibility">Pause</string>
     <string name="video_control_next_accessibility">Next</string>
 
-    <string name="url">URL</string>
-    <string name="url_http">https://</string>
-    <string name="url_invalid">Invalid URL</string>
-    <string name="url_network_error">Network Error!</string>
-    <string name="url_download_loading">Downloading…</string>
-    <string name="url_download_success">Download Success!</string>
-    <string name="url_download_error">Download Error!</string>
-    <string name="url_scrape_loading">Scraping…</string>
-    <string name="url_scrape_success">Scrape Success!</string>
-    <string name="url_scrape_error">Scrape Error!</string>
-    <string name="url_scrape_no_images">Scrape found no images!</string>
-
+    <string name="downloading">Downloading…</string>
     <string name="download_accessibility">Download</string>
-    <string name="download_checkbox_add_to_gallery">Add to Gallery</string>
-    <string name="search_accessibility">Search</string>
+
+    <string name="player_error_occurred">Player Error Occurred!</string>
+    <string name="download_error_occurred">Download Error Occurred!</string>
 
     <string name="network_error_title">No Internet Connection</string>
     <string name="network_error_body">You are currently offline.  Please check your connection and try again.</string>
     <string name="network_error_button_cancel">CANCEL</string>
     <string name="network_error_button_connect">CONNECT</string>
-
-    <string name="permission_rationale_storage_title">Permission Required</string>
-    <string name="permission_rationale_storage_body">Global Relay requires the storage permission to download images.</string>
-    <string name="permission_rationale_storage_body_allow_permission">Please allow the permission to continue using Global Relay.</string>
-    <string name="permission_rationale_storage_body_allow_permission_manually">Please manually allow the permission in system app info.</string>
-    <string name="rationale_cancel">CANCEL</string>
-    <string name="rationale_ok">OK</string>
-    <string name="app_info">App Info</string>
 </resources>
