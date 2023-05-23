@@ -1,8 +1,8 @@
 package com.silverorange.videoplayer.util
 
 object MockConstants {
-    const val DEFAULT_RETROFIT_BASE_URL = "https://localhost:4000/"
-    const val DEFAULT_MOCK_BASE_URL = "https://storage.googleapis.com/cartage/"
+    const val DEFAULT_RETROFIT_LOCALHOST_BASE_URL = "https://localhost:4000/"
+    const val DEFAULT_RETROFIT_PERSONAL_BACKEND_BASE_URL = "https://storage.googleapis.com/cartage/"
 
     const val FRAGMENT_MAIN_TAG = "main fragment"
     const val FRAGMENT_NETWORK_ERROR_TAG = "network error fragment"
